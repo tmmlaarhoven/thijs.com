@@ -1,0 +1,122 @@
+@INPROCEEDINGS{laarhoven13pqc,
+  author = {Thijs Laarhoven and Michele Mosca and Joop van de Pol},
+  title = {Solving the Shortest Vector Problem in Lattices Faster Using Quantum Search},
+  booktitle = {5th International Workshop on Post-Quantum Cryptography (PQCrypto)},
+  year = {2013},
+  month = {6},
+  pages = {83--101},
+  doi = {10.1007/978-3-642-38616-9_6},
+  url = {http://link.springer.com/chapter/10.1007/978-3-642-38616-9_6},
+  series = {Lecture Notes in Computer Science},
+  volume = {7932},
+  editor = {Philippe Gaborit}
+}
+
+@ARTICLE{laarhoven12vimss,
+  author = {Thijs Laarhoven and Joop van de Pol and Benne de Weger},
+  title = {Solving Hard Lattice Problems and the Security of Lattice-Based Cryptosystems},
+  journal = {Cryptology ePrint Archive},
+  year = {2012},
+  month = {9},
+  volume = {2012},
+  number = {533},
+  pages = {1--43},
+  url = {http://eprint.iacr.org/2012/533}
+}
+
+@INPROCEEDINGS{laarhoven13ihmmsec,
+  author = {Thijs Laarhoven and Benne de Weger},
+  title = {Discrete Distributions in the Tardos Scheme, Revisited},
+  booktitle = {1st ACM Workshop on Information Hiding and Multimedia Security},
+  year = {2013},
+  month = {6},
+  pages = {13--18},
+  url = {http://arxiv.org/abs/1302.1741}
+}
+
+@ARTICLE{laarhoven13tit,
+  author = {Thijs Laarhoven and Jeroen Doumen and Peter Roelse and Boris Skoric and Benne de Weger},
+  title = {Dynamic Tardos Traitor Tracing Schemes},
+  journal = {IEEE Transactions on Information Theory},
+  year = {2013},
+  month = {3},
+  volume = {TBD},
+  number = {TBD},
+  pages = {1--13},
+  doi = {10.1109/TIT.2013.2251756},
+  url = {http://arxiv.org/abs/1111.3597}
+}
+
+@PATENT{roelse12,
+  nationality = {GB},
+  number = {PCT/EP2012/058033},
+  author = {Peter Roelse and Jeroen Doumen and Thijs Laarhoven},
+  title = {Dynamic Tardos Traitor Tracing Schemes},
+  language = {English},
+  assignee = {Irdeto Corporate BV},
+  address = {105 Taurus Avenue},
+  year = {2012},
+  month = {12},
+  day = {20},
+  yearfiled = {2012},
+  monthfiled = {05},
+  dayfiled = {02},
+  url = {http://patentscope.wipo.int/search/en/WO2012171712}
+}
+
+@INPROCEEDINGS{laarhoven12wifs,
+  author = {Thijs Laarhoven and Jan-Jaap Oosterwijk and Jeroen Doumen},
+  title = {Dynamic Traitor Tracing for Arbitrary Alphabets: Divide and Conquer},
+  booktitle = {IEEE Workshop on Information Forensics and Security (WIFS)},
+  year = {2012},
+  month = {12},
+  pages = {240--245},
+  doi = {10.1109/WIFS.2012.6412656},
+  url = {http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6412656}
+}
+
+@ARTICLE{laarhoven12dcc,
+  author = {Thijs Laarhoven and Benne de Weger},
+  title = {Optimal Symmetric Tardos Traitor Tracing Schemes},
+  journal = {Designs, Codes and Cryptography},
+  year = {2012},
+  month = {7},
+  volume = {TBD},
+  number = {TBD},
+  pages = {1--21},
+  doi = {10.1007/s10623-012-9718-y},
+  url = {http://link.springer.com/article/10.1007/s10623-012-9718-y}
+}
+
+@MASTERSTHESIS{laarhoven11msc,
+  author = {Thijs Laarhoven},
+  title = {Collusion-Resistant Traitor Tracing Schemes},
+  school = {Eindhoven University of Technology},
+  year = {2011},
+  month = {6},
+  pages = {1--169},
+  url = {http://repository.tue.nl/719272}
+}
+
+@ARTICLE{laarhoven13im,
+  author = {Thijs Laarhoven and Benne de Weger},
+  title = {The Collatz Conjecture and De Bruijn Graphs},
+  journal = {Indagationes Mathematicae},
+  year = {2013},
+  month = {4},
+  volume = {TBD},
+  number = {TBD},
+  pages = {1--9},
+  doi = {10.1016/j.indag.2013.03.003},
+  url = {http://arxiv.org/abs/1209.3495}
+}
+
+@BACHELORSTHESIS{laarhoven09bsc,
+  author = {Thijs Laarhoven},
+  title = {The 3n+1 Conjecture},
+  school = {Eindhoven University of Technology},
+  year = {2009},
+  month = {7},
+  pages = {1--65},
+  url = {http://repository.tue.nl/652029}
+}
