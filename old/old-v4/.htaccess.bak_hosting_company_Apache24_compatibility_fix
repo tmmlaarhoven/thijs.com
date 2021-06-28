@@ -1,0 +1,13 @@
+rewriteengine on
+rewritecond %{HTTP_HOST} ^www.thijs.com$ [OR]
+rewritecond %{HTTP_HOST} ^thijs.com$
+rewriterule ^1$ "http\:\/\/link\.springer\.com\/article\/10\.1007\/s10623-012-9718-y\/" [R=301,L] #514b15fad2581
+rewritecond %{HTTP_HOST} ^www.thijs.com$ [OR]
+rewritecond %{HTTP_HOST} ^thijs.com$
+rewriterule ^2$ "http\:\/\/arxiv\.org\/abs\/1111\.3597" [R=301,L] #514b1743d8d4d
+
+
+Options +Indexes
+Options +ExecCGI
+AddType application/x-httpd-php5 .htm .html .php
+AddHandler x-httpd-php5 .htm .html .php

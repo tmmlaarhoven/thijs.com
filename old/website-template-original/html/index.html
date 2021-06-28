@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>Thijs Laarhoven</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<meta name="description" content=" ... add description here ... " />
+	<meta name="keywords" content=" ... add keywords here ... " />
+	
+	<!-- //////// Favicon ////////  -->
+	
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"  />
+	
+	<!-- //////// Css StyleSheets ////////  -->
+	
+	<link href="_layout/screen-style.css" rel="stylesheet" type="text/css" />
+	<link href="_layout/print-style.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- //////// DD_belatedPNG - Png Fix for IE 6 ////////  -->
+	
+	<!--[if lt IE 7]>
+	<script type="text/javascript" src="_layout/js/DD_belatedPNG_0.0.7a-min.js"></script>
+	<script type="text/javascript">
+
+	</script>
+	<![endif]-->
+	
+	<!-- //////// jQuery ////////  -->
+	
+	<script src="_layout/js/jquery-1.3.1.min.js" type="text/javascript"></script>
+
+	<!-- //////// Cufon Font Replacement ////////  -->
+	
+	<script src="_layout/js/cufon-yui.js" type="text/javascript"></script>
+	<script src="_layout/js/Aller.font.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		Cufon.replace('h1');
+		Cufon.replace('.item h2');
+		Cufon.replace('h2.cv-section-name');
+	</script>
+	
+	<!-- //////// FancyBox - jQuery powered Lightbox ////////  -->
+	
+	<link rel="stylesheet" type="text/css" href="_layout/js/fancybox/jquery.fancybox-1.2.6.css" media="screen" />
+	<script type="text/javascript" src="_layout/js/fancybox/jquery.fancybox-1.2.6.pack.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("a.lightbox").fancybox({
+				'overlayOpacity': 0.7,
+				'overlayColor'	: '#333'
+			});
+		});
+	</script>
+	 
+	<!-- //////// Tipsy - custom Tooltips ////////  -->
+	
+	<link rel="stylesheet" type="text/css" href="_layout/js/tipsy/tipsy.css" />
+	<script type="text/javascript" src="_layout/js/tipsy/jquery.tipsy.js"></script>
+	<script type='text/javascript'>
+	  $(function() {
+		$('.tip').tipsy({gravity: 'n'});
+	  });
+	</script>
+	
+	<!-- //////// Email Me Panel Animation ////////  -->
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".emailme").click(function(){
+				$(".panel").toggle("fast");
+				$(this).toggleClass("active");
+				return false;
+			});
+		});
+	</script>
+	
+	<!-- //////// Contact Form ////////  -->
+	
+	<script type="text/javascript">                                         
+	/* <![CDATA[ */
+		$(document).ready(function(){ // sends the data filled in the contact form to the php file and shows a message
+			$("#contact-form").submit(function(){
+				var str = $(this).serialize();
+				$.ajax({
+				   type: "POST",
+				   url: "_layout/php/send.php",
+				   data: str,
+				   success: function(msg)
+				   {
+						$("#formstatus").ajaxComplete(function(event, request, settings){
+							if(msg == 'OK'){ // Message Sent? Show the 'Thank You' message and hide the form
+								result = '<div class="formstatusok">Your message has been sent. Thank you!</div>';
+								$("#fields").hide();
+							}
+							else{
+								result = msg;
+							}
+							$(this).html(result);
+						});
+					}
+				
+				 });
+				return false;
+			});
+		});
+	/* ]]> */	
+	</script>  
+		
+</head>
+<body>
+	
+	<div id="cv">
+	
+		<!-- // ABOUT ME /////////////////////////////////////////////////////////////////// -->
+		
+		<div class="cv-section first-cv-section fixed">
+		
+			<div class="person">
+				<a class="lightbox" rel="mypics" href="_content/640x550-placeholder.jpg" title="description item 1" >
+					<img src="_content/foto2.bmp" width="100" height="100" alt="john smith" />
+				</a>
+				<h1>Thijs Laarhoven</h1>
+				<h2>PhD Candidate</h2>
+			</div>
+			
+			<div id="contact-info">
+				<ul id="social-media">
+					<li><a href="http://linkedin.com/in/tmmlaarhoven" title="LinkedIn" class="tip"><img src="_layout/images/social-icons/linkedin.png"  alt="linkedin"/></a></li>
+					<li><a href="http://facebook.com/tmmlaarhoven" title="Facebook" class="tip"><img src="_layout/images/social-icons/facebook.png" alt="facebook" /></a></li>
+					<li><a href="http://twitter.com/tmmlaarhoven" title="Twitter" class="tip"><img src="_layout/images/social-icons/twitter.png" alt="twitter" /></a></li>
+					<li><a href="http://gplus.to/tmmlaarhoven" title="Google Plus" class="tip"><img src="_layout/images/social-icons/google.png" alt="google" /></a></li>
+					<li><a href="http://youtube.com/user/tmmlaarhoven" title="YouTube" class="tip"><img src="_layout/images/social-icons/youtube.png"  alt="youtube"/></a></li>
+				</ul>
+				<ul>
+					<li>e: <a href="mailto:t.m.m.laarhoven@tue.nl">t.m.m.laarhoven@tue.nl</a></li>
+					<li>w: <a href="http://www.win.tue.nl/~thijs">www.win.tue.nl/~thijs</a></li>
+					<li>p: <strong>(+31) 40-247 8317</strong></li>
+					<li>m: <strong>(+31) 6-2137 7276</strong></li>
+					<li>a: <strong>HG 8.79</strong></li>
+				</ul>
+			</div>
+	
+		</div><!-- end .cv-section -->
+		
+		<!-- // PROFESSIONAL PROFILE //////////////////////////////////////////////////////// -->
+		
+		<div class="cv-section fixed">
+		
+			<h2 class="cv-section-name">Summary</h2>
+			
+			<div class="cv-section-items">
+				
+				<div class="item last-item">
+					<p>In 2011 I graduated cum laude in Industrial and Applied Mathematics from the Eindhoven University of Technology, in the area 
+					of Coding Theory and Cryptology. In my final project I helped Irdeto develop a new and more efficient algorithm for fingerprinting 
+					digital content, which already lead to a patent and two peer-reviewed journal papers in less than one year. Currently I am a Ph.D. 
+					candidate at the Eindhoven University of Technology, investigating lattice-based cryptography and lattice basis reduction algorithms.</p>
+				</div><!-- end .item -->
+				
+			</div><!-- end .cv-section-items -->
+			
+		</div><!-- end .cv-section -->
+		
+		<!-- // WORK EXPERINCE /////////////////////////////////////////////////////////// -->
+		
+		<div class="cv-section fixed">
+		
+			<h2 class="cv-section-name">Experience</h2>
+			
+			<div class="cv-section-items">
+				
+				<div class="item">
+					<h4>Oct 2011 - Present</h4>
+					<h2>PhD Candidate</h2>
+					<h3>TU/e, Eindhoven, The Netherlands</h3>
+					<br/>
+					<p>Lattice-based cryptosystems are cryptosystems based on hard problems in lattices, such as 
+					finding the shortest vector in a lattice. Using lattice basis reduction, one can sometimes 
+					solve these hard problems and attack these cryptosystems. To estimate the security of these 
+					cryptosystems, it is therefore essential we get a better understanding of lattice basis 
+					reduction algorithms, such as LLL and BKZ. In my research I aim to create a better 
+					understanding of and find improvements for these lattice basis reduction algorithms.</p>
+				</div><!-- end .item -->
+				
+				<div class="item last-item">
+					<h4>Oct 2010 - Jun 2011</h4>
+					<h2>Internship</h2>
+					<h3>Irdeto, Eindhoven, The Netherlands</h3>
+					<br/>
+					<p>During my internship at Irdeto I investigated traitor tracing schemes that are resistant 
+					against so-called collusion-attacks. These schemes are used for watermarking digital content, 
+					such as pay-tv. Focus was mostly on the Tardos scheme, but also on certain dynamic traitor 
+					tracing schemes, and on the new invention we did, the dynamic Tardos scheme. This is also my 
+					final project for my Master of Science degree at the TU/e.</p>
+				</div><!-- end .item -->
+				
+			</div><!-- end .cv-section-items -->
+			
+		</div><!-- end .cv-section -->
+		
+		<!-- // EDUCATION ////////////////////////////////////////////////////////////////// -->
+		
+		<div class="cv-section last-cv-section fixed">
+		
+			<h2 class="cv-section-name">Education</h2>
+			
+			<div class="cv-section-items">
+				
+				<div class="item">
+					<h4>Sep 2009 - Aug 2011</h4>
+					<h2>Eindhoven University of Technology</h2>
+					<h3>MSc, Industrial and Applied Mathematics (cum laude)</h3>
+					<br />
+					<p>I graduated in the group Coding Theory and Cryptology, which 
+					is part of the section Discrete Mathematics. In the second year 
+					I chose to do a final project combined with an internship which 
+					I did with the company Irdeto. This internship concluded with 
+					writing a Masters thesis, titled "Collusion-resistant traitor 
+					tracing schemes", for which I was awarded a perfect 10/10.</p>	
+				</div><!-- end .item -->
+
+				<div class="item">
+					<h4>Sep 2006 - Aug 2009</h4>
+					<h2>Eindhoven University of Technology</h2>
+					<h3>BSc, Industrial and Applied Mathematics</h3>
+					<br />
+					<p>During these three years of my studies I also took many 
+					courses in computer science. In the first year I obtained 
+					propaedeutic diplomas for both mathematics and computer science, 
+					and later I also followed a so-called "minor" in advanced 
+					computer science, consisting of several courses in computer 
+					science.</p>
+					
+					<p>The last part of these three years was focused on discrete 
+					mathematics, which concluded with a final project and thesis 
+					about the Collatz conjecture.</p>	
+				</div><!-- end .item -->
+				
+				<div class="item last-item">
+					<h4>Sep 2000 - Aug 2006</h4>
+					<h2>Sondervick College, Veldhoven</h2>
+					<h3>Atheneum</h3>
+					<br />
+					<p>Track "Natuur en Techniek" with additional course 
+					Computer Science.</p>	
+				</div><!-- end .item -->
+
+			</div><!-- end .cv-section-items -->
+			
+		</div><!-- end .cv-section -->
+		
+		<!-- ////////////////////////////////////////////////////////////////////////////// -->
+	
+	</div><!-- end #cv -->
+	
+	<div class="panel">
+		
+		<p id="formstatus"></p>
+		<form id="contact-form" action="javascript:alert('success!');">
+			<fieldset>
+				<p>
+					<input class="textbox" type="text" name="name" value="Name*"
+					onfocus="if(this.value=='Name*')this.value='';" onblur="if(this.value=='')this.value='Name*';" />
+				</p>
+				<p>
+					<input class="textbox" type="text" name="email" value="Email*"
+					onfocus="if(this.value=='Email*')this.value='';" onblur="if(this.value=='')this.value='Email*';" />
+				</p>
+				<p>
+					<input class="textbox" type="text" name="subject" value="Subject*"  
+					onfocus="if(this.value=='Subject*')this.value='';" onblur="if(this.value=='')this.value='Subject*';"/>
+				</p>
+				<p>
+					<textarea class="textbox" name="message" rows="3" cols="25"></textarea>
+				</p>
+				<p>
+					<input class="btn" type="submit" name="submit" value="Send!" />
+					<!--<input class="btn" type="reset" name="submit" value="Reset" />-->
+				</p>
+			</fieldset>
+		</form><!-- end #contact-form -->
+
+	</div><!-- end .panel -->
+	
+	<br />
+	<br />
+	
+	<!--<a class="emailme" href="#">Email Me</a>-->
+
+	<script type="text/javascript"> Cufon.now(); </script>
+	<!-- analytics here -->
+	
+</body>
+</html>

@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>Thijs Laarhoven</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<meta name="description" content=" ... add description here ... " />
+	<meta name="keywords" content=" ... add keywords here ... " />
+	
+	<!-- //////// Favicon ////////  -->
+	
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"  />
+	
+	<!-- //////// Css StyleSheets ////////  -->
+	
+	<link href="_layout/screen-style.css" rel="stylesheet" type="text/css" />
+	<link href="_layout/print-style.css" rel="stylesheet" type="text/css" media="print" />
+	
+	<!-- //////// DD_belatedPNG - Png Fix for IE 6 ////////  -->
+	
+	<!--[if lt IE 7]>
+	<script type="text/javascript" src="_layout/js/DD_belatedPNG_0.0.7a-min.js"></script>
+	<script type="text/javascript">
+
+	</script>
+	<![endif]-->
+	
+	<!-- //////// jQuery ////////  -->
+	
+	<script src="_layout/js/jquery-1.3.1.min.js" type="text/javascript"></script>
+
+	<!-- //////// Cufon Font Replacement ////////  -->
+	
+	<script src="_layout/js/cufon-yui.js" type="text/javascript"></script>
+	<script src="_layout/js/Aller.font.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		Cufon.replace('h1');
+		Cufon.replace('.item h2');
+		Cufon.replace('h2.cv-section-name');
+	</script>
+	
+	<!-- //////// FancyBox - jQuery powered Lightbox ////////  -->
+	
+	<link rel="stylesheet" type="text/css" href="_layout/js/fancybox/jquery.fancybox-1.2.6.css" media="screen" />
+	<script type="text/javascript" src="_layout/js/fancybox/jquery.fancybox-1.2.6.pack.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("a.lightbox").fancybox({
+				'overlayOpacity': 0.7,
+				'overlayColor'	: '#333'
+			});
+		});
+	</script>
+	 
+	<!-- //////// Tipsy - custom Tooltips ////////  -->
+	
+	<link rel="stylesheet" type="text/css" href="_layout/js/tipsy/tipsy.css" />
+	<script type="text/javascript" src="_layout/js/tipsy/jquery.tipsy.js"></script>
+	<script type='text/javascript'>
+	  $(function() {
+		$('.tip').tipsy({gravity: 'n'});
+	  });
+	</script>
+	
+	<!-- //////// Email Me Panel Animation ////////  -->
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".emailme").click(function(){
+				$(".panel").toggle("fast");
+				$(this).toggleClass("active");
+				return false;
+			});
+		});
+	</script>
+	
+	<!-- //////// Contact Form ////////  -->
+	
+	<script type="text/javascript">                                         
+	/* <![CDATA[ */
+		$(document).ready(function(){ // sends the data filled in the contact form to the php file and shows a message
+			$("#contact-form").submit(function(){
+				var str = $(this).serialize();
+				$.ajax({
+				   type: "POST",
+				   url: "_layout/php/send.php",
+				   data: str,
+				   success: function(msg)
+				   {
+						$("#formstatus").ajaxComplete(function(event, request, settings){
+							if(msg == 'OK'){ // Message Sent? Show the 'Thank You' message and hide the form
+								result = '<div class="formstatusok">Your message has been sent. Thank you!</div>';
+								$("#fields").hide();
+							}
+							else{
+								result = msg;
+							}
+							$(this).html(result);
+						});
+					}
+				
+				 });
+				return false;
+			});
+		});
+	/* ]]> */	
+	</script>  
+		
+</head>
+<body>
+	
+	<div id="cv">
+	
+		<!-- // ABOUT ME /////////////////////////////////////////////////////////////////// -->
+		
+		<div class="cv-section first-cv-section fixed">
+		
+			<div class="person">
+				<a class="lightbox" rel="mypics" href="_content/640x550-placeholder.jpg" title="description item 1" >
+					<img src="_content/foto2.bmp" width="100" height="100" alt="john smith" />
+				</a>
+				<h1>Thijs Laarhoven</h1>
+				<h2>PhD Candidate</h2>
+			</div>
+			
+			<div id="contact-info">
+				<ul id="social-media">
+					<li><a href="http://linkedin.com/in/tmmlaarhoven" title="LinkedIn" class="tip"><img src="_layout/images/social-icons/linkedin.png"  alt="linkedin"/></a></li>
+					<li><a href="http://facebook.com/tmmlaarhoven" title="Facebook" class="tip"><img src="_layout/images/social-icons/facebook.png" alt="facebook" /></a></li>
+					<li><a href="http://twitter.com/tmmlaarhoven" title="Twitter" class="tip"><img src="_layout/images/social-icons/twitter.png" alt="twitter" /></a></li>
+					<li><a href="http://gplus.to/tmmlaarhoven" title="Google Plus" class="tip"><img src="_layout/images/social-icons/google.png" alt="google" /></a></li>
+					<li><a href="http://youtube.com/user/tmmlaarhoven" title="YouTube" class="tip"><img src="_layout/images/social-icons/youtube.png"  alt="youtube"/></a></li>
+				</ul>
+				<ul>
+					<li>e: <a href="mailto:t.m.m.laarhoven@tue.nl">t.m.m.laarhoven@tue.nl</a></li>
+					<li>w: <a href="http://www.win.tue.nl/~thijs">www.win.tue.nl/~thijs</a></li>
+					<li>p: <strong>(+31) 40-247 8317</strong></li>
+					<li>m: <strong>(+31) 6-2137 7276</strong></li>
+				</ul>
+			</div>
+	
+		</div><!-- end .cv-section -->
+
+		<!-- // PUBLICATIONS ////////////////////////////////////////////////////////////////// -->
+		
+		<div class="cv-section last-cv-section fixed">
+		
+			<!--<h2 class="cv-section-name">Publications</h2>-->
+			
+			<div class="cv-section-noindent">
+				
+				<div class="item">
+					<h4>2012+</h4>
+					<h2>The Collatz conjecture and De Bruijn graphs</h2>
+					<h3><u>Thijs Laarhoven</u>, Benne de Weger</h3>
+					<br />
+					<p><strong><i>In preparation.</i></strong></p>
+				</div><!-- end .item -->
+
+				<div class="item">
+					<h4>Nov 2011</h4>
+					<h2>Dynamic Tardos traitor tracing schemes</h2>
+					<h3><u>Thijs Laarhoven</u>, Jeroen Doumen, Peter Roelse, Boris Skoric, Benne de Weger</h3>
+					<br />
+					<p>We construct binary dynamic traitor tracing schemes, where the 
+					number of watermark bits needed to trace and disconnect any 
+					coalition of pirates is quadratic in the number of pirates, and 
+					logarithmic in the total number of users and the error probability. 
+					Our results improve upon results of Tassa, and our schemes have 
+					several other advantages, such as being able to generate all 
+					codewords in advance, a simple accusation method, and flexibility 
+					when the feedback from the pirate network is delayed.</p>
+					<p><strong><i>Submitted.</i></strong></p>
+				</div><!-- end .item -->
+
+				<div class="item">
+					<h4>Jul 2011</h4>
+					<h2>Optimal symmetric Tardos traitor tracing schemes</h2>
+					<h3><u>Thijs Laarhoven</u>, Benne de Weger</h3>
+					<br />
+					<p>For the Tardos traitor tracing scheme, we show that by combining 
+					the symbol-symmetric accusation function of Skoric et al. with the 
+					improved analysis of Blayer and Tassa we get further improvements. 
+					Our construction gives codes that are up to 4 times shorter than 
+					Blayer and Tassa's, and up to 2 times shorter than the codes from 
+					Skoric et al. Asymptotically, we achieve the theoretical optimal 
+					codelength for Tardos' distribution function and the symmetric score 
+					function. For large coalitions, our codelengths are asymptotically 
+					about 4.93% of Tardos' original codelengths, which also improves 
+					upon results from Nuida et al.</p>
+					<p><strong><i>To be published in Designs, Codes and Cryptography.</i></strong></p>
+				</div><!-- end .item -->
+
+				<div class="item">
+					<h4>Jul 2011</h4>
+					<h2>Collusion-resistant traitor tracing schemes</h2>
+					<h3><u>Thijs Laarhoven</u></h3>
+					<br />
+					<p>To protect digital content from unauthorized redistribution, 
+					distributors embed watermarks in the content to link copies to users. 
+					By cooperating and combining their watermarks, several colluders can 
+					create a copy which has a watermark that is different from each of 
+					their individual watermarks. The first part of this thesis contains 
+					an overview of the state of the art solutions for this problem. In
+					the second part, improvements to known schemes are investigated. We
+					show that by improving upon the analysis done by Skoric et al. and 
+					Blayer and Tassa, the codelength of the Tardos scheme can be further
+					reduced, and we present the optimal asymptotic first order constants.
+					We also present a whole new dynamic scheme based on the Tardos scheme,
+					improving upon earlier results by Tassa and with codelengths that can
+					even compete with the higher alphabet codelengths of Fiat and Tassa.</p>	
+					<p><strong><i>Masters thesis.</i></strong></p>
+				</div><!-- end .item -->
+				
+				<div class="item last-item">
+					<h4>Jul 2009</h4>
+					<h2>The Collatz conjecture</h2>
+					<h3><u>Thijs Laarhoven</u></h3>
+					<br />
+					<p>The 3n+1 conjecture, also known as the Collatz conjecture, is an 
+					unsolved conjecture in number theory. The 3n+1 function T is defined 
+					as T(n) = n/2 if n is even, and T(n) = 3n+1 if n is odd. The 3n+1 
+					conjecture says that for any positive integer n, the sequence 
+					{n, T(n), T(T(n)), T(T(T(n))), ...} contains the number 1. In this 
+					report, we look at various approaches to this problem. We look at the 
+					infinite Collatz graph, its adjacency matrix and its eigenvectors to 
+					learn more about the 3n+1 conjecture, and the consequences of the 
+					existence of other cycles or divergent trajectories. We also look at 
+					Collatz modular graphs to investigate properties of the 3n+1 conjecture 
+					when applied to congruence classes. A special case of these graphs is 
+					shown to be isomorphic to De Bruijn graphs, which has several 
+					interesting consequences.</p>	
+					<p><strong><i>Bachelors thesis.</i></strong></p>
+				</div><!-- end .item -->
+
+			</div><!-- end .cv-section-items -->
+			
+		</div><!-- end .cv-section -->
+		
+		<!-- ////////////////////////////////////////////////////////////////////////////// -->
+	
+	</div><!-- end #cv -->
+	
+	<div class="panel">
+		
+		<p id="formstatus"></p>
+		<form id="contact-form" action="javascript:alert('success!');">
+			<fieldset>
+				<p>
+					<input class="textbox" type="text" name="name" value="Name*"
+					onfocus="if(this.value=='Name*')this.value='';" onblur="if(this.value=='')this.value='Name*';" />
+				</p>
+				<p>
+					<input class="textbox" type="text" name="email" value="Email*"
+					onfocus="if(this.value=='Email*')this.value='';" onblur="if(this.value=='')this.value='Email*';" />
+				</p>
+				<p>
+					<input class="textbox" type="text" name="subject" value="Subject*"  
+					onfocus="if(this.value=='Subject*')this.value='';" onblur="if(this.value=='')this.value='Subject*';"/>
+				</p>
+				<p>
+					<textarea class="textbox" name="message" rows="3" cols="25"></textarea>
+				</p>
+				<p>
+					<input class="btn" type="submit" name="submit" value="Send!" />
+					<!--<input class="btn" type="reset" name="submit" value="Reset" />-->
+				</p>
+			</fieldset>
+		</form><!-- end #contact-form -->
+
+	</div><!-- end .panel -->
+	
+	<br />
+	<br />
+	
+	<!--<a class="emailme" href="#">Email Me</a>-->
+
+	<script type="text/javascript"> Cufon.now(); </script>
+	<!-- analytics here -->
+	
+</body>
+</html>
