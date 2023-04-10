@@ -1384,13 +1384,53 @@ textarea.form-control, textarea.form-control:focus {
 /* --- End of Skills --- */
 
 /* --- Knowledges --- */
-.knowledges {
+.skills {
   list-style: none;
 }
 
-.knowledges li {;
+li.skills1 {;
   display: inline-block;
-  background-color: #09aeea;
+  background-color: #aaae09;
+  border-radius: 3px;
+  color: #fff;
+  padding: 1px 10px;
+  margin: 3px 2px;
+  font-size: 13px;
+}
+
+li.skills2 {;
+  display: inline-block;
+  background-color: #099eda;
+  border-radius: 3px;
+  color: #fff;
+  padding: 1px 10px;
+  margin: 3px 2px;
+  font-size: 13px;
+}
+
+li.skills3 {;
+  display: inline-block;
+  background-color: #09aa8e;
+  border-radius: 3px;
+  color: #fff;
+  padding: 1px 10px;
+  margin: 3px 2px;
+  font-size: 13px;
+}
+
+li.skills4 {;
+  display: inline-block;
+  background-color: #6ebb09;
+  border-radius: 3px;
+  color: #fff;
+  padding: 1px 10px;
+  margin: 3px 2px;
+  font-size: 13px;
+}
+
+li.skills5 {;
+  display: inline-block;
+  background-color: #cc49be;
   border-radius: 3px;
   color: #fff;
   padding: 1px 10px;
