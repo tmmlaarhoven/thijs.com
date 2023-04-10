@@ -1,7 +1,7 @@
 from pybtex.database import parse_file
 bib = parse_file("papers.bib")
 
-with open("temp.txt", "w", encoding="utf-8") as f:
+with open("temp.html", "w", encoding="utf-8") as f:
     for entry in bib.entries:
         paper = bib.entries[entry]
         print(paper)
@@ -22,6 +22,8 @@ with open("temp.txt", "w", encoding="utf-8") as f:
 
         for keyword in paper.fields["keywords"].split(" "):
             categories.append(keyword)
+            if keyword == "award":
+                print(keyword)
 
         strcat = "\"category_" + ("\", \"category_".join(categories)) + "\""
 
@@ -29,13 +31,15 @@ with open("temp.txt", "w", encoding="utf-8") as f:
 
         f.write(f"                          <figure class=\"item standard\" data-groups='[{strcat}]'>\n")
         f.write(f"                            <div class=\"portfolio-item-img\">\n")
-        f.write(f"                              <img src=\"img/papers/{entry}.png\" alt=\"{event} {paper.fields['year']}\" title="" />\n")
+        f.write(f"                              <img src=\"papers/pnginv/{entry}.png\" alt=\"{event} {paper.fields['year']}\" title="" />\n")
         f.write(f"                              <a href=\"{url}\" target=\"_blank\"></a>\n")
         f.write(f"                            </div>\n\n")
         f.write(f"                            <i class=\"far fa-file-alt\"></i>\n")
         f.write(f"                            <h4 class=\"name\" style=\"padding-bottom: 0px;\">{paper.fields['title']}</h4>\n")
         f.write(f"                            <span style=\"font-style: italic;\">{authors}</span><br/>\n")
         f.write(f"                            <span style=\"font-weight: 800;\">{event} {paper.fields['year']}</span>\n")
+        if "note" in paper.fields:
+            f.write(f"                            <br/><span style=\"font-weight: 800; color: #6969FF\">{paper.fields['note']}</span>\n")
         f.write(f"                            <span class=\"category\">{event} {paper.fields['year']}</span>\n")
         f.write(f"                          </figure>\n\n")
 
