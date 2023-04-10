@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#papers').load("temp.html");
+      });
+    </script>
   </head>
 
   <body>
@@ -698,7 +704,7 @@
                           <!--<div data-include="temp.html"></div>-->
 
 
-                          <div id="includedContent"></div>
+                          <div id="papers"></div>
 
 
                           <!-- ############################ -->
@@ -890,10 +896,5 @@
     <script src="js/jquery.googlemap.js"></script>
     <script src="js/validator.js"></script>
     <script src="js/main.js"></script>
-    <script> 
-      $(function(){
-        $("#includedContent").load("temp.html"); 
-      });
-      </script> 
   </body>
 </html>
