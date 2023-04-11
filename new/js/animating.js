@@ -175,6 +175,10 @@ var PageTransitions = (function ($, options) {
             $pageTrigger.data('animation',animNumber);
         }
 
+        
+        if (!$pageTrigger.data('animation')) {
+            return;
+        }
         var animation = $pageTrigger.data('animation').toString(),
             gotoPage, inClass, outClass, selectedAnimNumber;
 
@@ -470,59 +474,68 @@ var PageTransitions = (function ($, options) {
         // This will get the nav-anim elements parent wrapper div
         var $pageWrapper = sectionsContainer,
             currentPageId = $pageWrapper.data('current'), tempPageIndex,
-            linkhref = $pageTrigger.attr('href').split("#"),
-            gotoPage = linkhref[1];
+            fulllink = $pageTrigger.attr('href'),
+            linkhref = $pageTrigger.attr('href').split("#")
             
-            tempPageIndex = currentPageId;
-
-            // Current page to be removed.
-            var $currentPage = $('section[data-id="' + currentPageId + '"]');
-
-            // NEXT PAGE
-            currentPageId = gotoPage;
-
-            // Check if the current page is same as the next page then do not do the animation
-            // else reset the 'isAnimatiing' flag
-            if (tempPageIndex != currentPageId) {
-                isAnimating = true;
-
-                $pageWrapper.data('current', currentPageId);
-
-                // Next page to be animated.
-
-                var $nextPage = $('section[data-id='+currentPageId+']').addClass('section-active');
-
-                $nextPage.scrollTop(0);
-
-                $currentPage.addClass(outClass).on(animEndEventName, function() {
-                    $currentPage.off(animEndEventName);
-                    endCurrentPage = true;
-                    if(endNextPage) {
-                        onEndAnimation($pageWrapper, $nextPage, $currentPage);
-                        endCurrentPage = false;
-                    }
-                });
-
-                $nextPage.addClass(inClass).on(animEndEventName, function() {
-                    $nextPage.off(animEndEventName);
-                    endNextPage = true;
-                    if(endCurrentPage) {
-                        onEndAnimation($pageWrapper, $nextPage, $currentPage);
-                        endNextPage = false;
-                        isAnimating = false;
-                    }
-                });
-
+            if (linkhref.length <= 1) {
+                window.open(fulllink, "_blank");
             }
             else {
-                isAnimating = false;
+                gotoPage = linkhref[1];
+            
+                tempPageIndex = currentPageId;
+
+                // Current page to be removed.
+                var $currentPage = $('section[data-id="' + currentPageId + '"]');
+
+                // NEXT PAGE
+                currentPageId = gotoPage;
+
+                // Check if the current page is same as the next page then do not do the animation
+                // else reset the 'isAnimatiing' flag
+                if (tempPageIndex != currentPageId) {
+                    isAnimating = true;
+
+                    $pageWrapper.data('current', currentPageId);
+
+                    // Next page to be animated.
+
+                    var $nextPage = $('section[data-id='+currentPageId+']').addClass('section-active');
+
+                    $nextPage.scrollTop(0);
+
+                    $currentPage.addClass(outClass).on(animEndEventName, function() {
+                        $currentPage.off(animEndEventName);
+                        endCurrentPage = true;
+                        if(endNextPage) {
+                            onEndAnimation($pageWrapper, $nextPage, $currentPage);
+                            endCurrentPage = false;
+                        }
+                    });
+
+                    $nextPage.addClass(inClass).on(animEndEventName, function() {
+                        $nextPage.off(animEndEventName);
+                        endNextPage = true;
+                        if(endCurrentPage) {
+                            onEndAnimation($pageWrapper, $nextPage, $currentPage);
+                            endNextPage = false;
+                            isAnimating = false;
+                        }
+                    });
+
+                }
+                else {
+                    isAnimating = false;
+                }
+
+            // Check if the animation is supported by browser and reset the pages.
+            if(!support) {
+                onEndAnimation($currentPage, $nextPage);
             }
-
-
-        // Check if the animation is supported by browser and reset the pages.
-        if(!support) {
-            onEndAnimation($currentPage, $nextPage);
         }
+
+
+
 
     }
 

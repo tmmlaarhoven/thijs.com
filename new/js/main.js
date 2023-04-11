@@ -64,37 +64,6 @@
     }
     // /Custom scroll
 
-    // Contact form validator
-    $(function () {
-
-        $('#contact_form').validator();
-
-        $('#contact_form').on('submit', function (e) {
-            if (!e.isDefaultPrevented()) {
-                var url = "contact_form/contact_form.php";
-
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: $(this).serialize(),
-                    success: function (data)
-                    {
-                        var messageAlert = 'alert-' + data.type;
-                        var messageText = data.message;
-
-                        var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-                        if (messageAlert && messageText) {
-                            $('#contact_form').find('.messages').html(alertBox);
-                            $('#contact_form')[0].reset();
-                        }
-                    }
-                });
-                return false;
-            }
-        });
-    });
-    // /Contact form validator
-
     //On Window load & Resize
     $(window)
         .on('load', function() { //Load
@@ -123,22 +92,6 @@
         var movementStrength = 23;
         var height = movementStrength / $(document).height();
         var width = movementStrength / $(document).width();
-        $("body").on('mousemove', function(e){
-            var pageX = e.pageX - ($(document).width() / 2),
-                pageY = e.pageY - ($(document).height() / 2),
-                newvalueX = width * pageX * -1,
-                newvalueY = height * pageY * -1,
-                elements = $('.lm-animated-bg');
-
-            elements.addClass('transition');
-            elements.css({
-                "background-position": "calc( 50% + " + newvalueX + "px ) calc( 50% + " + newvalueY + "px )",
-            });
-
-            setTimeout(function() {
-                elements.removeClass('transition');
-            }, 300);
-        })
 
         // Mobile menu
         $('.menu-toggle').on("click", function () {
@@ -302,14 +255,6 @@
                  values.title = item.el.attr('title');
                 }
             },
-        });
-
-        //Google Maps
-        $("#map").googleMap({
-            zoom: 16 // Google Map ZOOM. You can change this value
-        });
-        $("#map").addMarker({
-            address: "S601 Townsend Street, San Francisco, California, USA", // Your Address. Change it
         });
     });
 
