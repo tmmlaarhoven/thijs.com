@@ -1558,7 +1558,11 @@ li.skills5 {;
 }
 
 .portfolio-grid.two-columns figure {
-  width: 50%;
+  width: 46%;
+  /*border: 1px #000000 solid;*/
+  margin-bottom: 50px;
+  margin-left: 2%;
+  margin-right: 2%
 }
 
 .portfolio-grid.three-columns figure {
