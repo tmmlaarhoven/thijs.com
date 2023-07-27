@@ -2,17 +2,17 @@
 .ps {
   -ms-touch-action:auto;
   touch-action:auto;
-  overflow:scroll !important;
+  overflow:hidden !important;
   -ms-overflow-style:none
 }
 @supports (-ms-overflow-style: none) {
   .ps {
-    overflow:scroll !important
+    overflow:auto !important
   }
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .ps {
-    overflow:scroll !important
+    overflow:auto !important
   }
 }
 .ps.ps--active-x>.ps__scrollbar-x-rail,.ps.ps--active-y>.ps__scrollbar-y-rail {
