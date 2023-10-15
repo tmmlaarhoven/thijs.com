@@ -1,4 +1,0 @@
-# Redirect brackets to bracket hosting
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^brackets\.thijs\.com$ [NC]
-RewriteRule ^(.*) https://raw.githubusercontent.com/tmmlaarhoven/lichess-knockout/main/png/$1 [L,R]
